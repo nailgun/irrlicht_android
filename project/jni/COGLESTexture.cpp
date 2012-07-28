@@ -186,17 +186,9 @@ void COGLES1Texture::uploadTexture(bool newTexture, void* mipmapData, u32 level)
 			break;
 		case ECF_A8R8G8B8:
 			PixelType=GL_UNSIGNED_BYTE;
-			if (!Driver->queryOpenGLFeature(COGLES1ExtensionHandler::IRR_IMG_texture_format_BGRA8888) && !Driver->queryOpenGLFeature(COGLES1ExtensionHandler::IRR_EXT_texture_format_BGRA8888))
-			{
-				convert=CColorConverter::convert_A8R8G8B8toA8B8G8R8;
-				InternalFormat=GL_RGBA;
-				PixelFormat=GL_RGBA;
-			}
-			else
-			{
-				InternalFormat=GL_BGRA;
-				PixelFormat=GL_BGRA;
-			}
+            convert=CColorConverter::convert_A8R8G8B8toA8B8G8R8;
+            InternalFormat=GL_RGBA;
+            PixelFormat=GL_RGBA;
 			break;
 		default:
 			os::Printer::log("Unsupported texture format", ELL_ERROR);
