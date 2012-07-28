@@ -1,5 +1,3 @@
-# 
-# COSOperator.cpp was removed from IRROTHEROBJ
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -25,11 +23,15 @@ JPEGLIBOBJ = jpeglib/jcapimin.c jpeglib/jcapistd.c jpeglib/jccoefct.c jpeglib/jc
 LIBPNGOBJ = libpng/png.c libpng/pngerror.c libpng/pngget.c libpng/pngmem.c libpng/pngpread.c libpng/pngread.c libpng/pngrio.c libpng/pngrtran.c libpng/pngrutil.c libpng/pngset.c libpng/pngtrans.c libpng/pngwio.c libpng/pngwrite.c libpng/pngwtran.c libpng/pngwutil.c
 LIBAESGM = aesGladman/aescrypt.cpp aesGladman/aeskey.cpp aesGladman/aestab.cpp aesGladman/fileenc.cpp aesGladman/hmac.cpp aesGladman/prng.cpp aesGladman/pwd2key.cpp aesGladman/sha1.cpp aesGladman/sha2.cpp
 BZIP2OBJ = bzip2/blocksort.c bzip2/huffman.c bzip2/crctable.c bzip2/randtable.c bzip2/bzcompress.c bzip2/decompress.c bzip2/bzlib.c
-ANDROID = importgl.cpp app-android.cpp android-activity.cpp android-receiver.cpp CIrrDeviceAndroid.cpp
+ANDROID = importgl.cpp CIrrDeviceAndroid.cpp
+
 LOCAL_MODULE := irrlicht
 
-LOCAL_ARM_MODE   := arm 
-LOCAL_CFLAGS := -O3 -DANDROID_NDK -DDISABLE_IMPORTGL -I./../include/ -I./include/
+#LOCAL_ARM_MODE   := arm 
+LOCAL_CFLAGS := -DANDROID_NDK -DDISABLE_IMPORTGL
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../include \
+                           $(LOCAL_PATH)/libpng
+LOCAL_C_INCLUDES := $(LOCAL_EXPORT_C_INCLUDES) $(LOCAL_PATH)
 
 LOCAL_SRC_FILES := \
      $(ANDROID) \
@@ -39,7 +41,8 @@ LOCAL_SRC_FILES := \
      $(IRRGUIOBJ) $(ZLIBOBJ) $(JPEGLIBOBJ) $(LIBPNGOBJ) $(LIBAESGM) \
      $(BZIP2OBJ)
 
+LOCAL_EXPORT_LDLIBS := -lGLESv1_CM -ldl -llog -lGLESv2
+LOCAL_LDLIBS := $(LOCAL_EXPORT_LDLIBS)
 
-LOCAL_LDLIBS := -lGLESv1_CM -ldl -llog -lGLESv2
+include $(BUILD_STATIC_LIBRARY)
 
-include $(BUILD_SHARED_LIBRARY)

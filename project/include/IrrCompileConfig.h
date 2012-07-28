@@ -44,7 +44,7 @@
 //#define _IRR_COMPILE_WITH_SDL_DEVICE_
 
 //! Comment this line to compile without the fallback console device.
-#define _IRR_COMPILE_WITH_CONSOLE_DEVICE_
+#undef _IRR_COMPILE_WITH_CONSOLE_DEVICE_
 
 //! WIN32 for Windows32
 //! WIN64 for Windows64
@@ -106,7 +106,7 @@
 #define _IRR_ANDROID_PLATEFORM_
 #define _IRR_COMPILE_WITH_ANDROID_DEVICE_
 #define _IRR_COMPILE_WITH_OGLES1_
-#define _IRR_COMPILE_WITH_OGLES2_
+#undef _IRR_COMPILE_WITH_OGLES2_
 #define _DEBUG
 
 //#define _IRR_IPHONE_PLATFORM_ 
@@ -114,7 +114,7 @@
 #endif
 
 //! Define _IRR_COMPILE_WITH_JOYSTICK_SUPPORT_ if you want joystick events.
-#define _IRR_COMPILE_WITH_JOYSTICK_EVENTS_
+#undef _IRR_COMPILE_WITH_JOYSTICK_EVENTS_
 
 //! Maximum number of texture an SMaterial can have, up to 8 are supported by Irrlicht.
 #define _IRR_MATERIAL_MAX_TEXTURES_ 4
@@ -159,17 +159,17 @@ if using this driver, to avoid problems with the ogl-es emulators.
 //! Define _IRR_COMPILE_WITH_SOFTWARE_ to compile the Irrlicht engine with software driver
 /** If you do not need the software driver, or want to use Burning's Video instead,
 comment this define out */
-#define _IRR_COMPILE_WITH_SOFTWARE_
+#undef _IRR_COMPILE_WITH_SOFTWARE_
 
 //! Define _IRR_COMPILE_WITH_BURNINGSVIDEO_ to compile the Irrlicht engine with Burning's video driver
 /** If you do not need this software driver, you can comment this define out. */
-#define _IRR_COMPILE_WITH_BURNINGSVIDEO_
+#undef _IRR_COMPILE_WITH_BURNINGSVIDEO_
 
 //! Define _IRR_COMPILE_WITH_X11_ to compile the Irrlicht engine with X11 support.
 /** If you do not wish the engine to be compiled with X11, comment this
 define out. */
 // Only used in LinuxDevice.
-#define _IRR_COMPILE_WITH_X11_
+#undef _IRR_COMPILE_WITH_X11_
 
 //! Define _IRR_OPENGL_USE_EXTPOINTER_ if the OpenGL driver should use OpenGL extensions via function pointers.
 /** On some systems there is no support for the dynamic extension of OpenGL
@@ -274,7 +274,7 @@ tool <http://developer.nvidia.com/object/nvperfhud_home.html>. */
 			16Bit + SubPixel/SubTexel Correct + ZBuffer
 */
 
-#define BURNINGVIDEO_RENDERER_BEAUTIFUL
+#undef BURNINGVIDEO_RENDERER_BEAUTIFUL
 //#define BURNINGVIDEO_RENDERER_FAST
 //#define BURNINGVIDEO_RENDERER_ULTRA_FAST
 //#define BURNINGVIDEO_RENDERER_CE
@@ -299,7 +299,7 @@ B3D, MS3D or X meshes */
 #endif
 
 //! Define _IRR_COMPILE_WITH_IRR_MESH_LOADER_ if you want to load Irrlicht Engine .irrmesh files
-#define _IRR_COMPILE_WITH_IRR_MESH_LOADER_
+#undef _IRR_COMPILE_WITH_IRR_MESH_LOADER_
 
 //! Define _IRR_COMPILE_WITH_MD2_LOADER_ if you want to load Quake 2 animated files
 #define _IRR_COMPILE_WITH_MD2_LOADER_
@@ -307,40 +307,40 @@ B3D, MS3D or X meshes */
 #define _IRR_COMPILE_WITH_MD3_LOADER_
 
 //! Define _IRR_COMPILE_WITH_3DS_LOADER_ if you want to load 3D Studio Max files
-#define _IRR_COMPILE_WITH_3DS_LOADER_
+#undef _IRR_COMPILE_WITH_3DS_LOADER_
 //! Define _IRR_COMPILE_WITH_COLLADA_LOADER_ if you want to load Collada files
-#define _IRR_COMPILE_WITH_COLLADA_LOADER_
+#undef _IRR_COMPILE_WITH_COLLADA_LOADER_
 //! Define _IRR_COMPILE_WITH_CSM_LOADER_ if you want to load Cartography Shop files
-#define _IRR_COMPILE_WITH_CSM_LOADER_
+#undef _IRR_COMPILE_WITH_CSM_LOADER_
 //! Define _IRR_COMPILE_WITH_BSP_LOADER_ if you want to load Quake 3 BSP files
-#define _IRR_COMPILE_WITH_BSP_LOADER_
+#undef _IRR_COMPILE_WITH_BSP_LOADER_
 //! Define _IRR_COMPILE_WITH_DMF_LOADER_ if you want to load DeleD files
-#define _IRR_COMPILE_WITH_DMF_LOADER_
+#undef _IRR_COMPILE_WITH_DMF_LOADER_
 //! Define _IRR_COMPILE_WITH_LMTS_LOADER_ if you want to load LMTools files
-#define _IRR_COMPILE_WITH_LMTS_LOADER_
+#undef _IRR_COMPILE_WITH_LMTS_LOADER_
 //! Define _IRR_COMPILE_WITH_MY3D_LOADER_ if you want to load MY3D files
-#define _IRR_COMPILE_WITH_MY3D_LOADER_
+#undef _IRR_COMPILE_WITH_MY3D_LOADER_
 //! Define _IRR_COMPILE_WITH_OBJ_LOADER_ if you want to load Wavefront OBJ files
 #define _IRR_COMPILE_WITH_OBJ_LOADER_
 //! Define _IRR_COMPILE_WITH_OCT_LOADER_ if you want to load FSRad OCT files
-#define _IRR_COMPILE_WITH_OCT_LOADER_
+#undef _IRR_COMPILE_WITH_OCT_LOADER_
 //! Define _IRR_COMPILE_WITH_LWO_LOADER_ if you want to load Lightwave3D files
-#define _IRR_COMPILE_WITH_LWO_LOADER_
+#undef _IRR_COMPILE_WITH_LWO_LOADER_
 //! Define _IRR_COMPILE_WITH_STL_LOADER_ if you want to load stereolithography files
-#define _IRR_COMPILE_WITH_STL_LOADER_
+#undef _IRR_COMPILE_WITH_STL_LOADER_
 //! Define _IRR_COMPILE_WITH_PLY_LOADER_ if you want to load Polygon (Stanford Triangle) files
-#define _IRR_COMPILE_WITH_PLY_LOADER_
+#undef _IRR_COMPILE_WITH_PLY_LOADER_
 
 //! Define _IRR_COMPILE_WITH_IRR_WRITER_ if you want to write static .irrMesh files
-#define _IRR_COMPILE_WITH_IRR_WRITER_
+#undef _IRR_COMPILE_WITH_IRR_WRITER_
 //! Define _IRR_COMPILE_WITH_COLLADA_WRITER_ if you want to write Collada files
-#define _IRR_COMPILE_WITH_COLLADA_WRITER_
+#undef _IRR_COMPILE_WITH_COLLADA_WRITER_
 //! Define _IRR_COMPILE_WITH_STL_WRITER_ if you want to write .stl files
-#define _IRR_COMPILE_WITH_STL_WRITER_
+#undef _IRR_COMPILE_WITH_STL_WRITER_
 //! Define _IRR_COMPILE_WITH_OBJ_WRITER_ if you want to write .obj files
-#define _IRR_COMPILE_WITH_OBJ_WRITER_
+#undef _IRR_COMPILE_WITH_OBJ_WRITER_
 //! Define _IRR_COMPILE_WITH_PLY_WRITER_ if you want to write .ply files
-#define _IRR_COMPILE_WITH_PLY_WRITER_
+#undef _IRR_COMPILE_WITH_PLY_WRITER_
 
 //! Define _IRR_COMPILE_WITH_BMP_LOADER_ if you want to load .bmp files
 //! Disabling this loader will also disable the built-in font
@@ -348,38 +348,38 @@ B3D, MS3D or X meshes */
 //! Define _IRR_COMPILE_WITH_JPG_LOADER_ if you want to load .jpg files
 #define _IRR_COMPILE_WITH_JPG_LOADER_
 //! Define _IRR_COMPILE_WITH_PCX_LOADER_ if you want to load .pcx files
-#define _IRR_COMPILE_WITH_PCX_LOADER_
+#undef _IRR_COMPILE_WITH_PCX_LOADER_
 //! Define _IRR_COMPILE_WITH_PNG_LOADER_ if you want to load .png files
 #define _IRR_COMPILE_WITH_PNG_LOADER_
 //! Define _IRR_COMPILE_WITH_PPM_LOADER_ if you want to load .ppm/.pgm/.pbm files
-#define _IRR_COMPILE_WITH_PPM_LOADER_
+#undef _IRR_COMPILE_WITH_PPM_LOADER_
 //! Define _IRR_COMPILE_WITH_PSD_LOADER_ if you want to load .psd files
-#define _IRR_COMPILE_WITH_PSD_LOADER_
+#undef _IRR_COMPILE_WITH_PSD_LOADER_
 //! Define _IRR_COMPILE_WITH_TGA_LOADER_ if you want to load .tga files
-#define _IRR_COMPILE_WITH_TGA_LOADER_
+#undef _IRR_COMPILE_WITH_TGA_LOADER_
 //! Define _IRR_COMPILE_WITH_WAL_LOADER_ if you want to load .wal files
-#define _IRR_COMPILE_WITH_WAL_LOADER_
+#undef _IRR_COMPILE_WITH_WAL_LOADER_
 //! Define _IRR_COMPILE_WITH_RGB_LOADER_ if you want to load Silicon Graphics .rgb/.rgba/.sgi/.int/.inta/.bw files
-#define _IRR_COMPILE_WITH_RGB_LOADER_
+#undef _IRR_COMPILE_WITH_RGB_LOADER_
 
 //! Define _IRR_COMPILE_WITH_BMP_WRITER_ if you want to write .bmp files
-#define _IRR_COMPILE_WITH_BMP_WRITER_
+#undef _IRR_COMPILE_WITH_BMP_WRITER_
 //! Define _IRR_COMPILE_WITH_JPG_WRITER_ if you want to write .jpg files
-#define _IRR_COMPILE_WITH_JPG_WRITER_
+#undef _IRR_COMPILE_WITH_JPG_WRITER_
 //! Define _IRR_COMPILE_WITH_PCX_WRITER_ if you want to write .pcx files
-#define _IRR_COMPILE_WITH_PCX_WRITER_
+#undef _IRR_COMPILE_WITH_PCX_WRITER_
 //! Define _IRR_COMPILE_WITH_PNG_WRITER_ if you want to write .png files
-#define _IRR_COMPILE_WITH_PNG_WRITER_
+#undef _IRR_COMPILE_WITH_PNG_WRITER_
 //! Define _IRR_COMPILE_WITH_PPM_WRITER_ if you want to write .ppm files
-#define _IRR_COMPILE_WITH_PPM_WRITER_
+#undef _IRR_COMPILE_WITH_PPM_WRITER_
 //! Define _IRR_COMPILE_WITH_PSD_WRITER_ if you want to write .psd files
-#define _IRR_COMPILE_WITH_PSD_WRITER_
+#undef _IRR_COMPILE_WITH_PSD_WRITER_
 //! Define _IRR_COMPILE_WITH_TGA_WRITER_ if you want to write .tga files
-#define _IRR_COMPILE_WITH_TGA_WRITER_
+#undef _IRR_COMPILE_WITH_TGA_WRITER_
 
 //! Define __IRR_COMPILE_WITH_ZIP_ARCHIVE_LOADER_ if you want to open ZIP and GZIP archives
 /** ZIP reading has several more options below to configure. */
-#define __IRR_COMPILE_WITH_ZIP_ARCHIVE_LOADER_
+#undef __IRR_COMPILE_WITH_ZIP_ARCHIVE_LOADER_
 #ifdef __IRR_COMPILE_WITH_ZIP_ARCHIVE_LOADER_
 //! Define _IRR_COMPILE_WITH_ZLIB_ to enable compiling the engine using zlib.
 /** This enables the engine to read from compressed .zip archives. If you
