@@ -103,6 +103,12 @@ public:
 	//! sets whether this texture is intended to be used as a render target.
 	void setIsRenderTarget(bool isTarget);
 
+	//! copies the texture into an OpenGL texture.
+	/** \param newTexture True if method is called for a newly created texture for the first time. Otherwise call with false to improve memory handling.
+	\param mipmapData Pointer to raw mipmap data, including all necessary mip levels, in the same format as the main texture image.
+	\param mipLevel If set to non-zero, only that specific miplevel is updated, using the MipImage member. */
+	void uploadTexture(bool newTexture=false, void* mipmapData=0, u32 mipLevel=0);
+
 protected:
 
 	//! protected constructor with basic setup, no GL texture name created, for derived classes
@@ -117,12 +123,6 @@ protected:
 
 	//! get important numbers of the image and hw texture
 	void getImageValues(IImage* image);
-
-	//! copies the texture into an OpenGL texture.
-	/** \param newTexture True if method is called for a newly created texture for the first time. Otherwise call with false to improve memory handling.
-	\param mipmapData Pointer to raw mipmap data, including all necessary mip levels, in the same format as the main texture image.
-	\param mipLevel If set to non-zero, only that specific miplevel is updated, using the MipImage member. */
-	void uploadTexture(bool newTexture=false, void* mipmapData=0, u32 mipLevel=0);
 
 	core::dimension2d<u32> ImageSize;
 	core::dimension2d<u32> TextureSize;

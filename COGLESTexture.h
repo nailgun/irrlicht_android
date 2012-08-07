@@ -82,6 +82,9 @@ public:
 	//! sets whether this texture is intended to be used as a render target.
 	void setIsRenderTarget(bool isTarget);
 
+	//! copies the the texture into an open gl texture.
+	void uploadTexture(bool newTexture=true, void* mipmapData=0, u32 mipLevel=0);
+
 protected:
 
 	//! protected constructor with basic setup, no GL texture name created, for derived classes
@@ -92,9 +95,6 @@ protected:
 
 	//! convert the image into an internal image with better properties for this driver.
 	void getImageValues(IImage* image);
-
-	//! copies the the texture into an open gl texture.
-	void uploadTexture(bool newTexture=true, void* mipmapData=0, u32 mipLevel=0);
 
 	core::dimension2d<u32> ImageSize;
 	core::dimension2d<u32> TextureSize;

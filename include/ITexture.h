@@ -122,6 +122,10 @@ public:
 	/** \return The size of the texture. */
 	virtual const core::dimension2d<u32>& getSize() const = 0;
 
+	virtual void uploadTexture(bool newTexture=true, void* mipmapData=0, u32 mipLevel=0)
+    {
+    }
+
 	//! Get driver type of texture.
 	/** This is the driver, which created the texture. This method is used
 	internally by the video devices, to check, if they may use a texture
