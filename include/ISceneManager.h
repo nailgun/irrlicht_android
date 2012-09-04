@@ -1514,6 +1514,9 @@ namespace scene
 		\return True if node is not visible in the current scene, else
 		false. */
 		virtual bool isCulled(const ISceneNode* node) const =0;
+        
+        //! cpthooch
+        virtual void reverseTransparancySorting(bool reverse) = 0;
 	};
 
 

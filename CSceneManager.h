@@ -495,6 +495,8 @@ namespace scene
 		//! returns if node is culled
 		virtual bool isCulled(const ISceneNode* node) const;
 
+        virtual void reverseTransparancySorting(bool reverse);
+        
 	private:
 
 		//! clears the deletion list
@@ -537,18 +539,19 @@ namespace scene
 		//! sort on distance (center) to camera
 		struct TransparentNodeEntry
 		{
-			TransparentNodeEntry(ISceneNode* n, const core::vector3df& camera)
-				: Node(n)
+			TransparentNodeEntry(ISceneNode* n, const core::vector3df& camera, bool reverse)
+				: Node(n), Reverse(reverse)
 			{
 				Distance = Node->getAbsoluteTransformation().getTranslation().getDistanceFromSQ(camera);
 			}
 
 			bool operator < (const TransparentNodeEntry& other) const
 			{
-				return Distance > other.Distance;
+				return Reverse ? Distance < other.Distance : Distance > other.Distance;
 			}
 
 			ISceneNode* Node;
+            bool Reverse;
 			private:
 				f64 Distance;
 		};
@@ -634,6 +637,8 @@ namespace scene
 		const core::stringw IRR_XML_FORMAT_NODE_ATTR_TYPE;
 
 		IGeometryCreator* GeometryCreator;
+                
+        bool ReverseTransparancySorting;
 	};
 
 } // end namespace video

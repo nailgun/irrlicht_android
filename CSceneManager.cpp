@@ -170,7 +170,8 @@ CSceneManager::CSceneManager(video::IVideoDriver* driver, io::IFileSystem* fs,
 	CursorControl(cursorControl), CollisionManager(0),
 	ActiveCamera(0), ShadowColor(150,0,0,0), AmbientLight(0,0,0,0),
 	MeshCache(cache), CurrentRendertime(ESNRP_NONE), LightManager(0),
-	IRR_XML_FORMAT_SCENE(L"irr_scene"), IRR_XML_FORMAT_NODE(L"node"), IRR_XML_FORMAT_NODE_ATTR_TYPE(L"type")
+	IRR_XML_FORMAT_SCENE(L"irr_scene"), IRR_XML_FORMAT_NODE(L"node"), IRR_XML_FORMAT_NODE_ATTR_TYPE(L"type"),
+    ReverseTransparancySorting(false)
 {
 	#ifdef _DEBUG
 	ISceneManager::setDebugName("CSceneManager ISceneManager");
@@ -1189,6 +1190,10 @@ bool CSceneManager::isCulled(const ISceneNode* node) const
 }
 
 
+void CSceneManager::reverseTransparancySorting(bool reverse) {
+    ReverseTransparancySorting = reverse;
+}
+    
 //! registers a node for rendering it at a specific time.
 u32 CSceneManager::registerNodeForRendering(ISceneNode* node, E_SCENE_NODE_RENDER_PASS pass)
 {
@@ -1239,14 +1244,14 @@ u32 CSceneManager::registerNodeForRendering(ISceneNode* node, E_SCENE_NODE_RENDE
 	case ESNRP_TRANSPARENT:
 		if (!isCulled(node))
 		{
-			TransparentNodeList.push_back(TransparentNodeEntry(node, camWorldPos));
+			TransparentNodeList.push_back(TransparentNodeEntry(node, camWorldPos, ReverseTransparancySorting));
 			taken = 1;
 		}
 		break;
 	case ESNRP_TRANSPARENT_EFFECT:
 		if (!isCulled(node))
 		{
-			TransparentEffectNodeList.push_back(TransparentNodeEntry(node, camWorldPos));
+			TransparentEffectNodeList.push_back(TransparentNodeEntry(node, camWorldPos, ReverseTransparancySorting));
 			taken = 1;
 		}
 		break;
@@ -1263,7 +1268,7 @@ u32 CSceneManager::registerNodeForRendering(ISceneNode* node, E_SCENE_NODE_RENDE
 				if (rnd && rnd->isTransparent())
 				{
 					// register as transparent node
-					TransparentNodeEntry e(node, camWorldPos);
+					TransparentNodeEntry e(node, camWorldPos, ReverseTransparancySorting);
 					TransparentNodeList.push_back(e);
 					taken = 1;
 					break;
